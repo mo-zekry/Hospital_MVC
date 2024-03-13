@@ -1,3 +1,3 @@
 # Video Demo
 
-<video controls autoplay loop><source src="./Video/view.mp4" type="video/mp4"></video>
+<video controls src="Video/view.mp4" title="Title"></video>
