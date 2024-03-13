@@ -1,0 +1,33 @@
+@model List<Doctor>
+
+<h1 class="text-center">Book an Appointment</h1>
+
+<section class="container d-flex flex-wrap justify-content-center">
+    @{
+        foreach (var doctor in Model)
+        {
+            <div class="card m-3" style="width: 22rem">
+                <div style="height: 16rem; overflow: hidden;">
+                    <img src="~/images/@doctor.Img" class="card-img-top img-fluid" alt="@doctor.Name">
+                </div>
+                <div class="card-body p-2">
+                    <h5 class="card-title">@doctor.Name</h5>
+                    <p class="card-text">Specialization: @doctor.Specialization</p>
+                </div>
+                <div class="p-2">
+                    <a href="/BookAppointment/Book?doctorId=@doctor.Id" class="btn btn-primary btn-block">Book</a>
+                </div>
+            </div>
+        }
+    }
+</section>
+<style>
+    .card {
+        transition: all .2s ease-in-out;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 .5rem 1rem rgba(black, .15);
+    }
+</style>

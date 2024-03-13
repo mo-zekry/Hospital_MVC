@@ -1,0 +1,40 @@
+.card {
+  width: 300px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.doctor-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.info {
+  padding: 20px;
+}
+
+.name {
+  font-size: 1.5em;
+  margin-top: 0;
+}
+
+.specialization {
+  color: #666;
+}
+
+.book-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.book-button:hover {
+  background-color: #0056b3;
+}

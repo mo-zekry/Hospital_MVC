@@ -1,0 +1,74 @@
+@model Doctor
+
+<section
+    class="h-100 d-flex justify-content-center align-items-center position-absolute top-50 start-50 translate-middle">
+    <div class="card bg-primary text-white shadow p-4">
+        <div class="card-body">
+
+            <h2 class="card-title text-center text-white">Book an Appointment for @Model.Name</h2>
+
+            <form id="appointmentForm" class="text-white">
+                <input type="hidden" name="doctorId" value="@Model.Id" class="d-none outline-0">
+                <div class="form-group mb-3">
+                    <label for="dateInput" class="form-label">Select Date</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text border-0"><i class="far fa-calendar-alt text-white"></i></span>
+                        <input type="date" name="date" id="dateInput"
+                            class="form-control form-control-lg border-0 shadow-none" required>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="timeInput" class="form-label">Select Time</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text border-0"><i class="far fa-clock text-white"></i></span>
+                        <input type="time" name="time" id="timeInput"
+                            class="form-control form-control-lg border-0 shadow-none" required>
+                    </div>
+                </div>
+                <button type="submit" id="submitBtn" class="btn btn-light btn-lg btn-block shadow-lg">Book
+                    Appointment</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section>
+    @* bootstrap modal *@
+    <div class="modal fade" id="bookSuccessModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Success</h5>
+                </div>
+                <div class="modal-body">
+                    Appointment booked successfully.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="closeBtn" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    @* bootstrap modal handling *@
+    const submitBtn = document.getElementById('submitBtn');
+    const closeBtn = document.getElementById('closeBtn');
+
+    // handle submit
+    submitBtn.addEventListener('click', (event) =>
+    {
+        const modal = new bootstrap.Modal(document.getElementById('bookSuccessModal'));
+        event.preventDefault();
+        modal.show();
+    })
+
+    // handle close button
+    closeBtn.addEventListener('click', () =>
+    {
+        const modal = bootstrap.Modal.getInstance(document.getElementById('bookSuccessModal'));
+        modal.hide();
+    })
+
+</script>
